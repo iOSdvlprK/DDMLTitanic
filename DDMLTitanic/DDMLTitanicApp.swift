@@ -11,7 +11,7 @@ import SwiftUI
 struct DDMLTitanicApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
