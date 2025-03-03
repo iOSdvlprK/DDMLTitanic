@@ -27,10 +27,21 @@ struct MainView: View {
             ZStack {
                 Form {
                     // passenger class
-                    Section("Passenger Class") { Text("TODO: Siblings and spouses") }
+                    SegmentSectionView(
+                        selected: $tm.passengerClass,
+                        options: TitanicModel.passengerClasses,
+                        sectionTitle: "Passenger class",
+                        prompt: "What passenger class are you?"
+                    )
                     
                     // gender/sex
                     Section("Gender/sex") { Text("TODO: Siblings and spouses") }
+                    SegmentSectionView(
+                        selected: $tm.sex,
+                        options: TitanicModel.genders,
+                        sectionTitle: "Gender",
+                        prompt: "What is your gender?"
+                    )
                     
                     // age
                     Section("Age") { Text("TODO: Age") }
@@ -45,7 +56,12 @@ struct MainView: View {
                     Section("Ticket price?") { Text("TODO: Ticket price?") }
                     
                     // port
-                    Section("Port") { Text("TODO: Port") }
+                    SegmentSectionView(
+                        selected: $tm.port,
+                        options: TitanicModel.ports,
+                        sectionTitle: "Port",
+                        prompt: "What port did you embark from?"
+                    )
                 }
                 
                 if showAlert {
