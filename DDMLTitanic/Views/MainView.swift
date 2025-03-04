@@ -35,7 +35,6 @@ struct MainView: View {
                     )
                     
                     // gender/sex
-                    Section("Gender/sex") { Text("TODO: Siblings and spouses") }
                     SegmentSectionView(
                         selected: $tm.sex,
                         options: TitanicModel.genders,
@@ -44,16 +43,44 @@ struct MainView: View {
                     )
                     
                     // age
-                    Section("Age") { Text("TODO: Age") }
+                    SliderSectionView(
+                        value: $tm.age,
+                        sectionTitle: "Age",
+                        prompt: "Age: \(tm.age.formatted())",
+                        min: 0,
+                        max: 120,
+                        step: 0.5
+                    )
                     
                     // siblings and spouses
-                    Section("Siblings and spouses") { Text("TODO: Siblings and spouses") }
+                    SliderSectionView(
+                        value: $tm.siblingsSpouses,
+                        sectionTitle: "Siblings and Spouses",
+                        prompt: "Number of siblings/spouses: \(tm.siblingsSpouses.formatted())",
+                        min: 0,
+                        max: 10,
+                        step: 1
+                    )
                     
                     // parents and children
-                    Section("Parents and children") { Text("TODO: Parents and children") }
+                    SliderSectionView(
+                        value: $tm.parentsChildren,
+                        sectionTitle: "Parents and Children",
+                        prompt: "Number of parents and children: \(tm.parentsChildren.formatted())",
+                        min: 0,
+                        max: 10,
+                        step: 1
+                    )
                     
                     // ticket price? (in 1910 pounds)
-                    Section("Ticket price?") { Text("TODO: Ticket price?") }
+                    SliderSectionView(
+                        value: $tm.fare,
+                        sectionTitle: "Ticket price? (in 1910 pounds)",
+                        prompt: "Ticket price £\(tm.fare.formatted())",
+                        min: 0,
+                        max: 600,
+                        step: 0.1
+                    )
                     
                     // port
                     SegmentSectionView(
